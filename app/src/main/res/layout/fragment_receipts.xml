@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <!--Header Layout-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/HeaderTitleStyle"
+                android:text="@string/add_receipt"
+                android:gravity="center" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:text="@string/save"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_banner_unit_id" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15sp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_enter_the_details_below"
+                    android:textColor="@color/colorTextDarkGrey"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_bold" />
+
+
+                <!--Store Name-->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputStoreName"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="8sp"
+                    android:hint="@string/hint_store_name"
+                    android:inputType="textCapSentences" />
+
+                <!--Place-->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputPlace"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="10sp"
+                    android:focusable="false"
+                    android:hint="@string/hint_address"
+                    android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
+                    android:inputType="text" />
+
+                <!--City-->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputCity"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="8sp"
+                    android:hint="@string/hint_city"
+                    android:inputType="text"
+                    android:maxLength="@integer/city_max_length"
+                    tools:hint="@string/hint_city" />
+
+                <!--State-->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8sp">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spState"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5sp"
+                        android:background="@color/white"
+                        android:spinnerMode="dropdown"
+                        android:visibility="invisible" />
+
+                    <!--State-->
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/inputState"
+                        style="@style/AddReceiptInputTextStyle"
+                        android:focusable="false"
+                        android:hint="@string/hint_state"
+                        android:inputType="text" />
+                </FrameLayout>
+
+                <!--ZIP CODE-->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputZipCode"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="8sp"
+                    android:hint="@string/hint_zip_code"
+                    android:inputType="text"
+                    android:maxLength="@integer/zip_code_max_length"
+                    tools:hint="@string/hint_zip_code" />
+
+                <!--Category-->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8sp">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5sp"
+                        android:background="@color/white"
+                        android:spinnerMode="dropdown"
+                        android:visibility="invisible" />
+
+                    <!--Category-->
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/inputCategory"
+                        style="@style/AddReceiptInputTextStyle"
+                        android:focusable="false"
+                        android:hint="@string/hint_category"
+                        android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
+                        android:inputType="text" />
+                </FrameLayout>
+
+                <!--Date-->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputTransactionDate"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="8sp"
+                    android:focusable="false"
+                    android:hint="@string/hint_date"
+                    android:inputType="text"
+                    tools:hint="@string/hint_date" />
+
+                <!--Total Amount-->
+                <com.app.tyst.widget.currency.CurrencyEditText
+                    android:id="@+id/inputTotalAmount"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="8sp"
+                    android:hint="@string/total_amount"
+                    android:inputType="numberDecimal"
+                    app:currencySymbol="$"
+                    android:ems="10" />
+
+                <!--Tax Applied-->
+                <com.app.tyst.widget.currency.CurrencyEditText
+                    android:id="@+id/inputTaxApplied"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:layout_marginTop="8sp"
+                    android:hint="@string/tax_applied"
+                    android:inputType="numberDecimal"
+                    app:currencySymbol="$"
+                    android:ems="10" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_receipt"
+                    android:textColor="@color/colorTextDarkGrey"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    app:cardElevation="2sp"
+                    app:cardCornerRadius="5sp"
+                    android:layout_gravity="center_horizontal"
+                    app:cardBackgroundColor="@color/colorExtraLightGrey"
+                    android:layout_margin="10sp">
+
+                    <FrameLayout
+                        android:id="@+id/btnAddImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivReceiptImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivAddImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_add_black_48dp" />
+
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:visibility="gone"
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_rounded_button_color_primary"
+                    android:text="@string/add_image" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

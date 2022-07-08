@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <!--Header Layout-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingStart="10sp"
+            android:paddingEnd="10sp"
+            android:paddingBottom="10sp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvScreenName"
+                    style="@style/HeaderTitleStyle"
+                    android:text="@string/category" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_back_white_24dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/bg_rounded_fill_blue">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputSearch"
+                    style="@style/InputTextStyle"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_search_white_24dp"
+                    android:hint="@string/hint_search"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/btnClear" />
+
+                <ProgressBar
+                    android:id="@+id/progressView"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="5sp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/colorPrimaryDark"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5sp"
+                    android:src="@drawable/ic_close_grey24dp"
+                    app:tint="@color/colorWhite"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        5<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srlAccounts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:paddingBottom="40sp"
+                    android:clipToPadding="false"
+                    app:spanCount="2"
+                    android:layout_gravity="center_horizontal"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/list_item_accounts" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="100sp"
+                    android:id="@+id/tvNoData"
+                    android:text="@string/no_accounts_found"
+                    style="@style/NoDataTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    tools:visibility="visible"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+</layout>

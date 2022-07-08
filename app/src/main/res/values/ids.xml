@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id" translatable="false">2508507359378042</string>
+    <string name="google_client_id" translatable="false"> 539448343089-t0ret75g4fhrqc82pomhe727ficdvkq7.apps.googleusercontent.com</string>
+    <string name="google_client_secret" translatable="false">gQSdDTfS812ZfSDDJMkkz1he</string>
+    <string name="google_places_api_key" translatable="false">AIzaSyDR1bxczUZnCLuHJY4jKqnJFxtdnV4YEQ4</string>
+    <string name="google_places_api_key_test" translatable="false">AIzaSyA4W_MlNQNmpj7gmo9FXoBDr9zM-4tmN7A</string>
+
+<!--    <string name="admob_app_id" translatable="false">ca-app-pub-9915385884000998~5501145138</string>-->
+    <string name="admob_app_id" translatable="false">ca-app-pub-5963823178389539~1792060567</string>
+
+
+    <string name="admob_banner_unit_id_test" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_banner_unit_id_live" translatable="false">ca-app-pub-5963823178389539/6785652351</string>
+<!--    <string name="admob_banner_unit_id_live" translatable="false">ca-app-pub-5171425067173077/9792567991</string>-->
+    <string name="admob_banner_unit_id" translatable="false">@string/admob_banner_unit_id_test</string>
+
+
+    <string name="admob_interstitial_unit_id_live" translatable="false">ca-app-pub-5963823178389539/2721998855</string>
+    <string name="admob_interstitial_unit_id_test" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_interstitial_unit_id" translatable="false">@string/admob_interstitial_unit_id_test</string>
+
+<!--    <string name="plaid_public_key">61f621c0070c57acea0b77d34cb3f8</string>-->
+    <string name="plaid_public_key">994f0a46d8e13a39afb2b9c5d4386f</string>
+
+</resources>

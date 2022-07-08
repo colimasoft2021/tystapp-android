@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="image"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="5sp"
+        android:layout_margin="5sp"
+        app:cardBackgroundColor="@color/colorExtraLightGrey">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivReceiptImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            app:imageUrl="@{image}" />
+        <!--                    -->
+
+        <!--            app:imageUrl="@{user.profileImage}"-->
+        <!--            app:default="@{R.drawable.user_profile}"-->
+        <!--            app:imageUrl="@{user.profileImage, default = @drawable/user_profile}"-->
+        <!--            android:src="@{user.profileImage, default=@drawable/user_profile}"-->
+
+    </androidx.cardview.widget.CardView>
+</layout>

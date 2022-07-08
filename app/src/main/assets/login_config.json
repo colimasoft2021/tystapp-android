@@ -1,0 +1,6 @@
+{
+  "loginWith": "email",
+  "loginWithFacebook": "1",
+  "loginWithGoogle": "1",
+  "skip":"0"
+}

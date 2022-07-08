@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="total"
+            type="com.app.tyst.data.model.response.TotalAmountItem" />
+
+        <variable
+            name="dateRange"
+            type="String" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <!--Header Layout-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_topicon" />
+
+            <!--            <androidx.appcompat.widget.AppCompatEditText-->
+            <!--                style="@style/InputTextStyle"-->
+            <!--                android:background="@drawable/bg_rounded_fill_blue"-->
+            <!--                android:drawableStart="@drawable/ic_search_white_24dp"-->
+            <!--                android:padding="5sp"-->
+            <!--                android:hint="@string/hint_search"-->
+            <!--                android:visibility="gone" />-->
+
+
+        </RelativeLayout>
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_banner_unit_id" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srlHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/bg_rounded_color_primary"
+                    android:orientation="vertical"
+                    android:padding="10sp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDateRange"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{dateRange}"
+                        android:textColor="@color/colorWhite"
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_marginStart="5sp"
+                        android:textSize="14sp"
+                        android:drawableEnd="@drawable/ic_arrow_right_white_24dp"
+                        app:drawableTint="@color/colorWhite"
+                        android:gravity="center_vertical"
+                        tools:text="01 Jan 2018 - 11 Nov 2019" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:layout_marginTop="10sp"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="5sp"
+                            android:background="@drawable/bg_rounded_fill_blue"
+                            android:orientation="vertical"
+                            android:padding="10sp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/total_amount"
+                                android:textColor="@color/colorWhite"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="12sp"
+                                android:layout_gravity="center_horizontal" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvTotalAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="25sp"
+                                android:textColor="@color/colorWhite"
+                                android:fontFamily="@font/roboto_bold"
+                                android:textSize="20sp"
+                                tools:text="$512.34"
+                                app:autoSizeTextType="uniform"
+                                android:gravity="center"
+                                app:autoSizeMinTextSize="10sp"
+                                app:autoSizeMaxTextSize="20sp"
+                                android:text="@{total.getTransactionAmount()}"
+                                android:layout_marginTop="10sp"
+                                android:layout_gravity="center_horizontal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="5sp"
+                            android:background="@drawable/bg_rounded_fill_blue"
+                            android:orientation="vertical"
+                            android:padding="10sp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tax_applied"
+                                android:textColor="@color/colorWhite"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="12sp"
+                                android:layout_gravity="center_horizontal" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvTaxApplied"
+                                android:layout_width="match_parent"
+                                android:layout_height="25sp"
+                                android:textColor="@color/colorWhite"
+                                android:fontFamily="@font/roboto_bold"
+                                android:textSize="20sp"
+                                android:gravity="center"
+                                app:autoSizeTextType="uniform"
+                                app:autoSizeMinTextSize="10sp"
+                                app:autoSizeMaxTextSize="20sp"
+                                tools:text="$512.34"
+                                android:text="@{total.getTaxAmount()}"
+                                android:layout_marginTop="10sp"
+                                android:layout_gravity="center_horizontal" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvInstitutions"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10sp"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="2"
+                        android:layout_gravity="center_horizontal"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/list_item_institution_transaction_detail" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvNoData"
+                        android:text="@string/no_record_found"
+                        android:layout_gravity="center"
+                        style="@style/NoDataTextStyle"
+                        tools:visibility="visible"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

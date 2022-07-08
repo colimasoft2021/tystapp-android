@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="model"
+            type="com.app.tyst.ui.settings.feedback.FeedbackImageModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="5sp"
+        app:cardBackgroundColor="@color/colorExtraLightGrey"
+        android:layout_margin="10sp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnAddImage"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10sp"
+            android:src="@drawable/ic_add_black_48dp"
+            android:visibility="@{model.showAddButton() ? View.VISIBLE: View.GONE}" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7sp"
+            android:scaleType="centerInside"
+            android:visibility="@{model.showAddButton() ? View.GONE: View.VISIBLE}"
+            app:imageUrl="@{model.imagePath}"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnRemoveImage"
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:layout_gravity="top|end"
+            android:padding="5sp"
+            android:layout_margin="2sp"
+            android:background="@drawable/bg_circle_transeperant"
+            android:visibility="@{model.showAddButton() ? View.GONE: View.VISIBLE}"
+            android:src="@drawable/ic_close_white_24dp" />
+    </androidx.cardview.widget.CardView>
+</layout>

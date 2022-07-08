@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.app.tyst.ui.core.AppConfig"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBg">
+
+        <!--Skip Password-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:padding="10sp"
+            android:text="@string/skip"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:visibility="@{AppConfig.IS_SKIP?View.VISIBLE:View.GONE}"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btnSkip">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:overScrollMode="never">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBg"
+                    android:orientation="vertical">
+
+                    <!--Login Inputs-->
+
+                    <LinearLayout
+                        android:id="@+id/llLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="20sp"
+                        android:paddingStart="20sp"
+                        android:paddingEnd="20sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:paddingBottom="10sp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="30sp"
+                            android:layout_marginBottom="80sp"
+                            android:src="@drawable/login_logo" />
+
+                        <!--Phone Number-->
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/inputPhoneNumber"
+                            style="@style/InputTextStyle"
+                            android:layout_gravity="center"
+                            android:hint="@string/hint_phone_number"
+                            android:inputType="phone"
+                            android:maxLength="@integer/mobile_number_max_length"
+                            android:drawableStart="@drawable/mobile"
+                            app:drawableTint="@color/colorTextHint" />
+
+
+                        <!--Password-->
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/inputPassword"
+                            style="@style/InputTextStyle"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10sp"
+                            android:hint="@string/hint_password"
+                            android:inputType="textPassword"
+                            android:maxLength="@integer/password_max_length"
+                            android:drawableStart="@drawable/password"
+                            app:drawableTint="@color/colorTextHint" />
+
+
+                        <!--Forgot Password-->
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/btnForgotPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="10sp"
+                            android:text="@string/forgot_password_q"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/btnLogin"
+                            style="@style/ButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="25sp"
+                            android:layout_marginBottom="15sp"
+                            android:text="@string/login" />
+
+                    </LinearLayout>
+
+
+                    <!--Sign Up-->
+                    <LinearLayout
+                        android:id="@+id/llSignUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="30sp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="5sp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/don_t_have_an_account"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/btnSignUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="@string/create_now"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</layout>

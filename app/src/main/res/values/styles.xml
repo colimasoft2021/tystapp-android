@@ -1,0 +1,196 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <!--   <item name="colorControlNormal">@color/colorGray</item>
+           <item name="colorControlActivated">@color/colorWhite</item>-->
+        <item name="android:textColorHint">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
+<!--        <item name="positive_color">@color/colorPrimary</item>-->
+<!--        <item name="md_negative_color">@color/colorRed</item>-->
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@color/transparent</item>
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <item name="android:windowEnterAnimation">@anim/dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fade_out</item>
+    </style>
+
+    <!--Input Field style-->
+    <style name="InputTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">15sp</item>
+        <item name="android:paddingEnd">10sp</item>
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:background">@drawable/bg_rounded_input_field</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:drawablePadding">8sp</item>
+        <item name="android:textColorHighlight">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!--Input Field style-->
+    <style name="AddReceiptInputTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">15sp</item>
+        <item name="android:paddingEnd">10sp</item>
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:backgroundTint">@color/colorTextHint</item>
+        <item name="android:textColorHighlight">@color/colorTextHint</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!--Input Field style-->
+    <style name="InputTextStyle2" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:paddingEnd">15sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:drawablePadding">8sp</item>
+        <item name="android:textColorHighlight">@color/colorTextHint</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+
+    <!--Buttons Style-->
+    <style name="ButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:background">@drawable/bg_rounded_dark_red</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">8sp</item>
+        <item name="android:paddingBottom">8sp</item>
+        <item name="android:paddingStart">25sp</item>
+        <item name="android:paddingEnd">25sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+
+    <!--Header Title Style-->
+    <style name="HeaderTitleStyle">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!--SettingButton Style-->
+    <style name="NoDataTextStyle">
+        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="OtpWidget" />
+
+    <style name="OtpWidget.OtpView" parent="@android:style/Widget.EditText">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorControlActivated">#33691e</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
+
+    <!--Switch Style-->
+    <style name="SwitchStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/colorGreen</item>
+        <item name="android:colorButtonNormal">@color/white</item>
+        <item name="colorSwitchThumbNormal">@color/colorGrey</item>
+    </style>
+
+    <style name="ErrorText" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+
+    <style name="CounterText" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
+    </style>
+
+    <style name="CounterOverFlow" parent="TextAppearance.Design.Counter.Overflow">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+</resources>

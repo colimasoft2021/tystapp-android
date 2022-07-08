@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	
+	<item
+		android:id="@+id/action_home"
+		android:icon="@drawable/img_tab1"
+		android:title="@string/home"
+		app:showAsAction="always" />
+
+	<item
+		android:id="@+id/action_export"
+		android:icon="@drawable/img_tab3"
+		android:title="@string/export"
+		app:showAsAction="always" />
+	
+	<item
+		android:id="@+id/action_receipts"
+		android:icon="@drawable/img_tab6"
+		android:title="@string/receipts"
+		app:showAsAction="always" />
+	
+	<item
+		android:id="@+id/action_my_profile"
+		android:icon="@drawable/img_tab4"
+		android:title="@string/profile"
+		app:showAsAction="always" />
+	
+	<item
+		android:id="@+id/action_setting"
+		android:icon="@drawable/img_tab5"
+		android:title="@string/settings"
+		app:showAsAction="always" />
+
+
+</menu>

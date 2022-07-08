@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "539448343089",
+    "firebase_url": "https://tyst-12a79.firebaseio.com",
+    "project_id": "tyst-12a79",
+    "storage_bucket": "tyst-12a79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539448343089:android:209f2b7b7706dc54623310",
+        "android_client_info": {
+          "package_name": "com.app.tyst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539448343089-31d19rr6khirbo3n9ldrce518f7836ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR1bxczUZnCLuHJY4jKqnJFxtdnV4YEQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539448343089-31d19rr6khirbo3n9ldrce518f7836ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

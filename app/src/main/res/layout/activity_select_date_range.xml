@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--Header-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:paddingStart="5sp"
+            android:background="@color/colorPrimary"
+            android:paddingEnd="5sp">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvScreenName"
+                style="@style/HeaderTitleStyle"
+                android:text="@string/select_date_range" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="10sp"
+                android:src="@drawable/ic_arrow_back_white_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:text="@string/reset"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            custom:cardCornerRadius="8dp">
+
+            <com.archit.calendardaterangepicker.customviews.DateRangeCalendarView
+                android:id="@+id/calendarPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:calendar_tag="Date Range"
+                custom:disable_date_color="#ABABAB"
+                custom:header_bg="@drawable/calender_header"
+                custom:range_color="@color/colorPrimary"
+                custom:selected_date_circle_color="@color/colorPrimaryDark"
+                custom:title_color="@color/white"
+                custom:editable="true"
+                custom:enable_past_date="true"
+                custom:week_offset="0">
+
+            </com.archit.calendardaterangepicker.customviews.DateRangeCalendarView>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnSelect"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_margin="20sp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/select" />
+
+    </RelativeLayout>
+</layout>

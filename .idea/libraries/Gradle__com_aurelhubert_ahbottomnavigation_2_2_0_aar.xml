@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: com.aurelhubert:ahbottomnavigation:2.2.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1d06d43fd2c95a4648d3d7873951ea08/transformed/jetified-ahbottomnavigation-2.2.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1d06d43fd2c95a4648d3d7873951ea08/transformed/jetified-ahbottomnavigation-2.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1d06d43fd2c95a4648d3d7873951ea08/transformed/jetified-ahbottomnavigation-2.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1d06d43fd2c95a4648d3d7873951ea08/transformed/jetified-ahbottomnavigation-2.2.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aurelhubert/ahbottomnavigation/2.2.0/d948f0fbde792c218b79469f3e14fe2455d5cdcf/ahbottomnavigation-2.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aurelhubert/ahbottomnavigation/2.2.0/92dae324ddb2a36ecc137e060d6b7f8a6fa6749e/ahbottomnavigation-2.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="institution"
+            type="com.app.tyst.data.model.response.InstitutionsTotalAmountItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="5sp"
+        android:layout_margin="5sp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvInstitutionName"
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:textColor="@color/colorTextGrey"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="14sp"
+                app:autoSizeTextType="uniform"
+                android:gravity="center"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeStepGranularity="1sp"
+                tools:text="@tools:sample/cities"
+                android:text="@{institution.institutionName}"
+                android:layout_gravity="center_horizontal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="25sp"
+                android:textColor="@color/colorTextDarkGrey"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="20sp"
+                tools:text="$512.34"
+                app:autoSizeTextType="uniform"
+                android:gravity="center"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeMaxTextSize="20sp"
+                android:text="@{institution.getTotalAmount()}"
+                android:layout_marginTop="10sp"
+                android:layout_gravity="center_horizontal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTaxApplied"
+                android:layout_width="match_parent"
+                android:layout_height="15sp"
+                android:textColor="@color/colorTextGrey"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@{institution.getTotalTaxAmount()}"
+                android:textSize="14sp"
+                app:autoSizeTextType="uniform"
+                android:gravity="center"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeMaxTextSize="14sp"
+                tools:text="Tax: $25.25"
+                app:autoSizeStepGranularity="1sp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnAlert"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:paddingEnd="5sp"
+                android:paddingTop="5sp"
+                android:layout_alignParentEnd="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:src="@drawable/exclamation_mark" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

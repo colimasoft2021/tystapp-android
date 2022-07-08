@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.lifecycle.MutableLiveData" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="phoneNumber"
+            type="String" />
+
+        <variable
+            name="time"
+            type="MutableLiveData&lt;String>" />
+
+        <variable
+            name="enableRetry"
+            type="MutableLiveData&lt;Boolean>" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBg"
+
+        android:orientation="vertical">
+
+
+        <!--Header-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            android:paddingStart="5sp"
+            android:paddingEnd="5sp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/HeaderTitleStyle"
+                android:text="@string/verification_code" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="10sp"
+                android:src="@drawable/ic_arrow_back_white_24dp" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20sp"
+                android:gravity="center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_enter_verification_code"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="5sp"
+                    android:textColor="@color/colorTextBlack" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="@{phoneNumber}"
+                    android:layout_marginTop="5sp"
+                    android:textColor="@color/colorTextBlack"
+                    tools:text="999999999" />
+
+                <com.app.tyst.widget.otpview.OtpView
+                    android:id="@+id/otp_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50sp"
+                    android:inputType="number"
+                    android:textColor="@color/colorTextBlack"
+                    app:hideLineWhenFilled="false"
+                    app:itemCount="4"
+                    app:itemSpacing="6dp"
+                    app:lineColor="@color/otp_item_state"
+                    app:state_filled="true"
+                    app:viewType="line" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorTextBlack"
+                    android:text="@string/dont_receive_otp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:visibility="@{enableRetry ? View.GONE : View.VISIBLE}"
+                    android:text="@{time}"
+                    android:textColor="@color/colorTextBlack" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnRetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{enableRetry ? View.VISIBLE : View.GONE}"
+                    android:padding="10sp"
+                    android:text="@string/resend_otp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnValidate"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_margin="20sp"
+                    android:text="@string/submit" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

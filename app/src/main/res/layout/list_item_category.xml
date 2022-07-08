@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="accounts"
+            type="com.app.tyst.data.model.response.CategoryResponse" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorExtraLightGrey"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="5sp"
+        android:layout_margin="5sp">
+
+        <RelativeLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAccountName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextBlack"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                tools:text="Bank Of America"
+                android:layout_alignParentStart="true"
+                android:text="@{accounts.category}"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

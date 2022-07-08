@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <!--Header Layout-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/colorPrimary"
+            android:paddingStart="5sp"
+            android:paddingEnd="5sp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/HeaderTitleStyle"
+                android:text="@string/export_data" />
+
+        </RelativeLayout>
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_banner_unit_id" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srlLogs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvLogs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginBottom="10sp"
+                    app:spanCount="2"
+                    android:layout_gravity="center_horizontal"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/list_item_logs" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNoData"
+                    android:text="@string/no_record_found"
+                    style="@style/NoDataTextStyle"
+                    android:layout_gravity="center"
+                    tools:visibility="visible"
+                    android:visibility="gone" />
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/fab_full_btn"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="end|bottom"-->
+<!--                    android:animateLayoutChanges="true"-->
+<!--                    android:background="@drawable/fab_btn_corner"-->
+<!--                    android:backgroundTint="@color/colorPrimary"-->
+<!--                    android:clipToPadding="false"-->
+<!--                    android:layout_margin="16sp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:outlineProvider="none"-->
+<!--                    android:outlineSpotShadowColor="@android:color/transparent">-->
+
+<!--                    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                        android:id="@+id/fabAdd"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        app:backgroundTint="@color/colorPrimary"-->
+<!--                        app:borderWidth="0dp"-->
+<!--                        app:elevation="0dp"-->
+<!--                        app:fabSize="normal"-->
+<!--                        app:srcCompat="@drawable/ic_add_white_24dp"-->
+<!--                        app:useCompatPadding="false"/>-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/fabAddText"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/roboto_medium"-->
+<!--                        android:paddingStart="0dp"-->
+<!--                        android:paddingEnd="20sp"-->
+<!--                        android:text="@string/create_log"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="@android:color/white"-->
+<!--                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"/>-->
+
+<!--                </LinearLayout>-->
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16sp"
+                    android:src="@drawable/ic_add_white_24dp"
+                    app:backgroundTint="@color/colorPrimary"
+                    android:layout_gravity="bottom|end"
+                    app:elevation="5sp" />
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

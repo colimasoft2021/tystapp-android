@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="transaction"
+            type="com.app.tyst.data.model.response.TransactionDataResponse" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorExtraLightGrey"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="5sp"
+        android:layout_margin="5sp">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp">
+
+            <!--            Store Name And Date-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStoreName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="14sp"
+                    tools:text="Bank Of America"
+                    android:layout_alignParentStart="true"
+                    android:text="@{transaction.storeName}"
+                    android:layout_toStartOf="@+id/tvDate"
+                    android:layout_centerVertical="true" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/colorTextGrey"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12sp"
+                    tools:text="11 Nov 2019"
+                    android:text="@{transaction.parseTransactionDate()}"
+                    android:layout_centerVertical="true" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAccountName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextGrey"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="12sp"
+                tools:text="Saving Account"
+                android:layout_marginTop="2sp"
+                android:text="@{transaction.accountName}"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_toStartOf="@+id/ivTax"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGrey"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12sp"
+                        tools:text="Location"
+                        android:text="@{transaction.location}"
+                        android:visibility="@{transaction.isLocationAvailable() ? View.VISIBLE : View.GONE}" />
+                    <!--            Category-->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCategoryName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGrey"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginTop="5sp"
+                        android:textSize="12sp"
+                        tools:text="Category"
+                        android:text="@{transaction.category}" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivTax"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    tools:src="@drawable/tax_fill"
+                    android:src="@{transaction.getTaxImage()}"
+                    android:layout_marginStart="5sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+
+            <!--            Amount and Tax-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--                Total Amount-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/llTex"
+                    android:layout_marginTop="5sp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGrey"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="14sp"
+                        android:text="@string/total_amount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextBlack"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="14sp"
+                        tools:text="$2.0"
+                        android:text="@{transaction.parseTransactionAmount()}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llTex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5sp"
+                    android:gravity="end">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGrey"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="end"
+                        android:textSize="14sp"
+                        android:text="@string/tax_applied" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTaxApplied"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#34C759"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="end"
+                        android:textSize="14sp"
+                        tools:text="$2.0"
+                        tools:visibility="visible"
+                        android:text="@{transaction.parseTaxAmount()}"
+                        android:visibility="@{transaction.isTaxAvailable() ? View.VISIBLE : View.GONE}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTaxNotApplied"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF3B30"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="end"
+                        android:textSize="14sp"
+                        android:text="@string/n_a"
+                        tools:visibility="visible"
+                        android:visibility="@{transaction.isTaxAvailable() ? View.GONE : View.VISIBLE}"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

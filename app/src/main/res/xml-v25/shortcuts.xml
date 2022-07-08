@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/email_shortcut_disabled_message"
+        android:shortcutId="email"
+        android:shortcutLongLabel="@string/email_shortcut_long_label"
+        android:shortcutShortLabel="@string/email_shortcut_short_label">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.app.tyst.ui.authentication.login.loginwithemail.LoginWithEmailActivity"
+            android:targetPackage="com.app.tyst" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/phone_shortcut_disabled_message"
+        android:shortcutId="phone"
+        android:shortcutLongLabel="@string/phone_shortcut_long_label"
+        android:shortcutShortLabel="@string/phone_shortcut_short_label">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.app.tyst.ui.authentication.login.loginwithphonenumber.LoginWithPhoneNumberActivity"
+            android:targetPackage="com.app.tyst" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/email_social_shortcut_disabled_message"
+        android:shortcutId="email_social"
+        android:shortcutLongLabel="@string/email_social_shortcut_long_label"
+        android:shortcutShortLabel="@string/email_social_shortcut_short_label">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.app.tyst.ui.authentication.login.loginwithemailsocial.LoginWithEmailSocialActivity"
+            android:targetPackage="com.app.tyst" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/phone_social_shortcut_disabled_message"
+        android:shortcutId="phone_social"
+        android:shortcutLongLabel="@string/phone_social_shortcut_long_label"
+        android:shortcutShortLabel="@string/phone_social_shortcut_short_label">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.app.tyst.ui.authentication.login.loginwithphonenumbersocial.LoginWithPhoneNumberSocialActivity"
+            android:targetPackage="com.app.tyst" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+</shortcuts>

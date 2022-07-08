@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jraska:falcon-spoon-compat:2.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b783756e669ddc3c12023dedacc5ae70/transformed/jetified-falcon-spoon-compat-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b783756e669ddc3c12023dedacc5ae70/transformed/jetified-falcon-spoon-compat-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b783756e669ddc3c12023dedacc5ae70/transformed/jetified-falcon-spoon-compat-2.1.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jraska/falcon-spoon-compat/2.1.0/91cae628bc67803a9fac6a95e84790bfea3ddaa8/falcon-spoon-compat-2.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jraska/falcon-spoon-compat/2.1.0/14635dc32546b11d071b97a9d73b8d9f86585412/falcon-spoon-compat-2.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

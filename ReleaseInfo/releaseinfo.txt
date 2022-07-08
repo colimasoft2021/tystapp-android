@@ -1,0 +1,24 @@
+# Version 1.0.1 Version Code : 1
+- Upload on play store in Alpha for In-app subscriptions
+
+# Version 1.0.7 Version Code : 8 (13-01-2020)
+- Add on boarding screen.
+
+# Version 1.0.8 Version Code : 9 (16-01-2020)
+- Ui changed in boarding screen.
+
+# Version 1.0.9 Version Code : 10 (03-03-2020)
+- Multiple account functionality
+- Encrypt Preferences
+
+# Version 1.1.3 Version Code : 13 (07-04-2020)
+- Change category functionality
+- Re-Authentication issue for plaid done
+- Duplicate record insertion issue done.
+
+# Version 1.1.4 Version Code : 14 (11-04-2020)
+- Live url build with password encryption.
+
+# Version 1.1.5 Version Code : 18 (18-04-2020)
+- Show message before add bank from home and my profile screen
+- Change image and text color for tax and without tax transactions in transaction list screen.

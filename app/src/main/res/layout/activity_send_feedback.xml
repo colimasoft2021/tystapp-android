@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+	
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/main_bg"
+		android:orientation="vertical">
+		
+		<!--Header-->
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="?actionBarSize"
+			android:paddingStart="5sp"
+			android:paddingEnd="5sp">
+			
+			
+			<androidx.appcompat.widget.AppCompatTextView
+				style="@style/HeaderTitleStyle"
+				android:text="@string/send_feedback" />
+			
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/btnBack"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:padding="10sp"
+				android:src="@drawable/ic_arrow_back_white_24dp" />
+		
+		</RelativeLayout>
+		
+		<ScrollView
+			android:id="@+id/scrollView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:overScrollMode="never"
+			android:scrollbars="none">
+			
+			
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:focusable="true"
+				android:focusableInTouchMode="true"
+				android:orientation="vertical"
+				android:padding="20sp">
+				
+				
+				<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="20sp"
+					android:src="@drawable/tyst_logo" />
+				
+				
+				<com.google.android.material.textfield.TextInputLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="6sp"
+					app:counterEnabled="true"
+					app:counterMaxLength="@integer/feedback_max_length"
+					app:counterTextAppearance="@color/colorPrimaryDark"
+					app:hintEnabled="false">
+					<!--Email-->
+					<androidx.appcompat.widget.AppCompatEditText
+						android:id="@+id/inputBrief"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/bg_rounded_white_border"
+						android:gravity="start|top"
+						android:hint="@string/hint_briefly_explain_what_happened"
+						android:inputType="textMultiLine"
+						android:maxLength="@integer/feedback_max_length"
+						android:maxLines="5"
+						android:minLines="5"
+						android:padding="5sp"
+						android:textColor="@color/colorTextBlack"
+						android:textColorHint="@color/colorGrey"
+						android:textCursorDrawable="@null"
+						android:textSize="14sp" />
+				</com.google.android.material.textfield.TextInputLayout>
+				<!--IMAGES-->
+				
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/rvImages"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="20sp"
+					android:orientation="horizontal"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+					tools:itemCount="4"
+					tools:listitem="@layout/list_item_feedback_image" />
+				
+				
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/tvFeedback"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="20sp"
+					android:gravity="center"
+					android:text="@string/msg_report_problem"
+					android:textColor="@color/white"
+					android:textSize="13sp" />
+				
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/btnSend"
+					style="@style/ButtonStyle"
+					android:layout_width="match_parent"
+					android:layout_gravity="center"
+					android:layout_marginTop="20sp"
+					android:text="@string/send" />
+			
+			</LinearLayout>
+		
+		
+		</ScrollView>
+	
+	</LinearLayout>
+</layout>

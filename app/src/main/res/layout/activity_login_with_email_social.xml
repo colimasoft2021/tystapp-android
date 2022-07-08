@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<data>
+		
+		<import type="com.app.tyst.ui.core.AppConfig" />
+		
+		<import type="android.view.View" />
+	</data>
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/main_bg">
+		
+		<!--Skip Password-->
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/btnSkip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentEnd="true"
+			android:padding="10sp"
+			android:text="@string/skip"
+			android:textColor="@color/colorPrimary"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:visibility="gone" />
+		
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/btnSkip">
+			
+			<ScrollView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:overScrollMode="never"
+				android:scrollbars="none">
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+					
+					<LinearLayout
+						android:id="@+id/llLogin"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:focusable="true"
+						android:focusableInTouchMode="true"
+						android:orientation="vertical"
+						android:paddingStart="20sp"
+						android:paddingEnd="20sp"
+						android:paddingBottom="10sp">
+						
+						<androidx.appcompat.widget.AppCompatImageView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:layout_marginBottom="10sp"
+							android:src="@drawable/tyst_logo" />
+						
+						<androidx.appcompat.widget.AppCompatTextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:layout_marginTop="-30dp"
+							android:layout_marginBottom="30sp"
+							android:fontFamily="@font/roboto_light"
+							android:text="@string/track_your_sales_tax"
+							android:textColor="@color/white"
+							android:textSize="16sp" />
+						
+						<!--Email-->
+						<androidx.appcompat.widget.AppCompatEditText
+							android:id="@+id/inputEmail"
+							style="@style/InputTextStyle"
+							android:layout_gravity="center"
+							android:hint="@string/hint_email_address"
+							android:inputType="textEmailAddress" />
+						
+						<!--Password-->
+						<androidx.appcompat.widget.AppCompatEditText
+							android:id="@+id/inputPassword"
+							style="@style/InputTextStyle"
+							android:layout_gravity="center"
+							android:layout_marginTop="10sp"
+							android:hint="@string/hint_password"
+							android:inputType="textPassword"
+							android:maxLength="@integer/password_max_length" />
+						
+						
+						<!--Forgot Password-->
+						<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/btnForgotPassword"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="end"
+							android:layout_marginTop="10sp"
+							android:fontFamily="@font/roboto_regular"
+							android:text="@string/forgot_password_q"
+							android:textColor="@color/white"
+							android:textSize="14sp" />
+						
+						<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/btnLogin"
+							style="@style/ButtonStyle"
+							android:layout_width="match_parent"
+							android:layout_marginTop="25sp"
+							android:layout_marginBottom="15sp"
+							android:text="@string/login" />
+						
+						
+						<LinearLayout
+							android:id="@+id/btnFb"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:layout_marginTop="15sp"
+							android:layout_marginStart="15sp"
+							android:layout_marginEnd="15sp"
+							android:background="@drawable/bg_fb"
+							android:gravity="center"
+							android:orientation="horizontal"
+							android:paddingStart="5sp"
+							android:paddingTop="7sp"
+							android:paddingEnd="5sp"
+							android:paddingBottom="7sp">
+							
+							<androidx.appcompat.widget.AppCompatImageView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="center"
+								android:layout_marginEnd="10sp"
+								android:src="@drawable/fb_logo" />
+							
+							<androidx.appcompat.widget.AppCompatTextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="center"
+								android:gravity="center_horizontal"
+								android:text="@string/sign_fb"
+								android:textColor="@color/white"
+								android:fontFamily="@font/roboto_regular"
+								android:textSize="16sp" />
+						</LinearLayout>
+						
+						<LinearLayout
+							android:id="@+id/btnGoogle"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:layout_marginTop="10sp"
+							android:layout_marginStart="15sp"
+							android:layout_marginEnd="15sp"
+							android:background="@drawable/bg_google"
+							android:gravity="center"
+							android:orientation="horizontal"
+							android:paddingStart="5sp"
+							android:paddingTop="7sp"
+							android:paddingEnd="5sp"
+							android:paddingBottom="7sp">
+							
+							<androidx.appcompat.widget.AppCompatImageView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="center"
+								android:layout_marginEnd="10sp"
+								android:src="@drawable/google_logo" />
+							
+							<androidx.appcompat.widget.AppCompatTextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="center"
+								android:gravity="center_horizontal"
+								android:text="@string/sign_google"
+								android:textColor="@color/colorTextBlack"
+								android:fontFamily="@font/roboto_regular"
+								android:textSize="16sp" />
+						</LinearLayout>
+					</LinearLayout>
+					
+					<!--Sign Up-->
+					<LinearLayout
+						android:id="@+id/llSignUp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:layout_marginTop="10sp"
+						android:layout_marginBottom="30sp"
+						android:gravity="center"
+						android:orientation="horizontal"
+						android:padding="5sp">
+						
+						<androidx.appcompat.widget.AppCompatTextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:fontFamily="@font/roboto_regular"
+							android:text="@string/don_t_have_an_account"
+							android:textColor="@color/white"
+							android:textSize="14sp" />
+						
+						<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/btnSignUp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="5sp"
+							android:fontFamily="@font/roboto_regular"
+							android:text="@string/create_an_account"
+							android:textColor="@color/colorTextYellow"
+							android:textSize="15sp"
+							android:textStyle="bold" />
+					</LinearLayout>
+				</LinearLayout>
+			
+			
+			</ScrollView>
+		</RelativeLayout>
+	
+	</RelativeLayout>
+
+
+</layout>

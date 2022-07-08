@@ -1,0 +1,32 @@
+[
+  {
+    "institution_id": "ins_3",
+    "institution_name": "cha",
+    "access_token": "access-sandbox-3d2fe3fb-6927-44df-85ee-9bec9d75bff0",
+    "public_token": "public-sandbox-a5ddb189-d54b-45aa-88fb-93aff075eccf",
+    "is_first_transactions_dumped": "0",
+    "added_at": "2019-11-06 09:11:11",
+    "status": "Active",
+    "logo": ""
+  },
+  {
+    "institution_id": "ins_6",
+    "institution_name": "US Bank",
+    "access_token": "access-sandbox-d242d0ca-7232-4d48-88b9-6d40728d4a39",
+    "public_token": "public-sandbox-b11ca39e-ebe4-458c-82c5-93756f196999",
+    "is_first_transactions_dumped": "1",
+    "added_at": "2019-11-05 12:35:18",
+    "status": "Active",
+    "logo": ""
+  },
+  {
+    "institution_id": "ins_12",
+    "institution_name": "Fidelity",
+    "access_token": "access-sandbox-c2465957-d79a-42a0-920e-eef406a2d3f3",
+    "public_token": "public-sandbox-c74490dc-e63b-489c-b997-fc78229b0773",
+    "is_first_transactions_dumped": "1",
+    "added_at": "2019-11-05 09:21:36",
+    "status": "Active",
+    "logo": ""
+  }
+]

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="accounts"
+            type="com.app.tyst.data.model.response.AccountResponse" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorExtraLightGrey"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="5sp"
+        android:layout_margin="5sp">
+
+        <RelativeLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAccountName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextBlack"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                tools:text="Bank Of America"
+                android:layout_alignParentStart="true"
+                android:text="@{accounts.accountName}"
+                android:layout_toStartOf="@+id/ivCheck"
+                android:layout_centerVertical="true" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_done_black_24dp"
+                android:layout_marginStart="5sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:visibility="@{accounts.isSelected ? View.VISIBLE : View.GONE}"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

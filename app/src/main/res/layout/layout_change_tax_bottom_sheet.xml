@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30sp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:textColor="@color/colorTextDarkGrey"
+            android:text="@string/change_tax"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutTaxAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            app:hintEnabled="false"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/colorTextHint"
+            app:errorTextAppearance="@style/ErrorText">
+            <!--Tax-->
+            <com.app.tyst.widget.currency.CurrencyEditText
+                android:id="@+id/inputTaxAmount"
+                style="@style/AddReceiptInputTextStyle"
+                android:hint="@string/hint_tax_amount"
+                android:inputType="numberDecimal"
+                app:currencySymbol="$"
+                android:maxLength="14"
+                android:ems="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Reason-->
+        <FrameLayout
+            android:id="@+id/flReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spReason"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5sp"
+                android:background="@color/white"
+                android:spinnerMode="dropdown"
+                android:visibility="invisible" />
+
+            <!--Category-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:errorEnabled="true"
+                app:hintTextColor="@color/colorTextHint"
+                app:errorTextAppearance="@style/ErrorText">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputReasonText"
+                    style="@style/AddReceiptInputTextStyle"
+                    android:focusable="false"
+                    android:hint="@string/hint_select_reason"
+                    android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnChangeTax"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:background="@drawable/bg_rounded_button_color_primary"
+            android:text="@string/change_tax" />
+
+    </LinearLayout>
+</layout>
