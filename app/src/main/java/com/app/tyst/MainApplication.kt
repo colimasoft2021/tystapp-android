@@ -77,25 +77,11 @@ class MainApplication : Application() {
 
         Handler().postDelayed({ HomeRepository(BaseViewModel(this)).callConfigParameters(versionLiveData) }, 5000)
 
-        val crashButton = Button(this)
-        crashButton.text = "Test Crash"
-        crashButton.setOnClickListener {
-            throw RuntimeException("Test Crash") // Force a crash
-        }
-
-        addContentView(crashButton, ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT))
         }
     fun setCurrentActivity(activity: BaseActivity) {
         weakActivity = WeakReference(activity)
     }
-    fun addContentView(
-        view: View?,
-        params: ViewGroup.LayoutParams?
-    ) {
-        this.addContentView(view, params)
-    }
+
 
         fun getCurrentActivity(): BaseActivity? {
             return weakActivity?.get()
