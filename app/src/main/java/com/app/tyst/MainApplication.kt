@@ -85,12 +85,7 @@ class MainApplication : Application() {
     fun setCurrentActivity(activity: BaseActivity) {
         weakActivity = WeakReference(activity)
     }
-    fun addContentView(
-        view: View?,
-        params: ViewGroup.LayoutParams?
-    ) {
-        this.addContentView(view, params)
-    }
+
 
         fun getCurrentActivity(): BaseActivity? {
             return weakActivity?.get()
