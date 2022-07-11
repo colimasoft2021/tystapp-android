@@ -1,12 +1,13 @@
 package com.app.tyst
 
-//import com.crashlytics.android.Crashlytics
-//import com.plaid.linkbase.models.PlaidEnvironment
-//import com.plaid.linkbase.models.PlaidOptions
-//import com.plaid.plog.LogLevel
+import com.crashlytics.android.Crashlytics
+import com.plaid.linkbase.models.PlaidEnvironment
+import com.plaid.linkbase.models.PlaidOptions
+import com.plaid.plog.LogLevel
 
 import android.R
 import android.app.Application
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,14 +25,18 @@ import com.app.tyst.utility.SingleLiveEvent
 import com.app.tyst.utility.helper.LOGApp
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.MobileAds
+import com.hb.logger.Logger.Companion.initializeSession
+import com.hb.logger.Logger.Companion.setExceptionCallbackListener
 import com.plaid.link.Plaid
 import com.plaid.linkbase.models.configuration.PlaidEnvironment
 import com.plaid.linkbase.models.configuration.PlaidOptions
 import com.plaid.log.LogLevel
 import netscape.javascript.JSObject.getWindow
 import java.lang.ref.WeakReference
+import java.util.logging.Logger
 
 
 /**
@@ -76,16 +81,6 @@ class MainApplication : Application() {
         initPlaidSdk()
 
         Handler().postDelayed({ HomeRepository(BaseViewModel(this)).callConfigParameters(versionLiveData) }, 5000)
-
-        val crashButton = Button(this)
-        crashButton.text = "Test Crash"
-        crashButton.setOnClickListener {
-            throw RuntimeException("Test Crash") // Force a crash
-        }
-
-        addContentView(crashButton, ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT))
         }
     fun setCurrentActivity(activity: BaseActivity) {
         weakActivity = WeakReference(activity)
