@@ -22,7 +22,6 @@ import com.app.tyst.utility.extension.hideKeyBoard
 import com.app.tyst.utility.extension.sharedPreference
 import com.app.tyst.utility.extension.showSnackBar
 import com.app.tyst.utility.helper.LOGApp
-import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -31,6 +30,8 @@ import com.hb.logger.Logger
 import com.hb.logger.data.model.CustomLog
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.materialdesigniconic.MaterialDesignIconic
+import com.mikepenz.iconics.utils.icon
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 
 /**
  * Created by HB on 21/8/19.
@@ -256,18 +257,18 @@ abstract class BaseActivity : AppCompatActivity() {
         val icon = IconicsDrawable(this).icon(MaterialDesignIconic.Icon.gmi_google_play)
         icon.setTint(ContextCompat.getColor(this@BaseActivity, R.color.white))
 
-        val builder = MaterialStyledDialog.Builder(this).apply {
-            setIcon(icon)
-            withDialogAnimation(true)
+        MaterialStyledDialog.Builder(this).apply {
+            .setIcon(icon)
+            .withDialogAnimation(true)
             setTitle(getString(R.string.new_version_available))
-            setDescription(version.versionCheckMessage ?: "")
-            autoDismiss(false)
-            setScrollable(true)
-            setPositiveText(R.string.update)
+                .setDescription(version.versionCheckMessage ?: "")
+                .autoDismiss(false)
+                .setScrollable(true)
+                .setPositiveText(R.string.update)
             if (version.isOptionalUpdate())
-                setNegativeText(R.string.not_now)
-            setCancelable(version.isOptionalUpdate())
-            onPositive { _, _ ->
+                .setNegativeText(R.string.not_now)
+                .setCancelable(version.isOptionalUpdate())
+                .onPositive { _, _ ->
                 val appPackageName = packageName // getPackageName() from Context or Activity object
                 try {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))

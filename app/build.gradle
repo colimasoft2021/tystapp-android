@@ -226,6 +226,14 @@ dependencies {
     // Media Picker
 
     implementation "androidx.security:security-crypto:1.1.0-alpha03"
+
+    // image picker
+    implementation 'com.github.florent37:inline-activity-result-kotlin:1.0.4'
+    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+
+
+    //MaterialStyleDialogs
+    implementation 'com.github.javiersantos:MaterialStyledDialogs:3.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

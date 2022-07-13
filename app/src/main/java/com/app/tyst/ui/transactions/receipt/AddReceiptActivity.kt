@@ -43,7 +43,7 @@ import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.master.permissionhelper.PermissionHelper
 import com.simpleadapter.SimpleAdapter
-import net.alhazmy13.mediapicker.Image.ImagePicker
+import com.github.dhaval2404.imagepicker.ImagePicker
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -314,8 +314,8 @@ class AddReceiptActivity : BaseActivity() {
 //                    binding.ivReceiptImage.loadImage(path, R.drawable.user_profile)
 //                }
 
-                ImagePicker.IMAGE_PICKER_REQUEST_CODE -> {
-                    val mPaths = data?.getStringArrayListExtra(ImagePicker.EXTRA_IMAGE_PATH)
+                ImagePicker.REQUEST_CODE -> {
+                    val mPaths = data?.getStringArrayListExtra(ImagePicker.getFilePath(data))
                     if (mPaths?.isNotEmpty() == true) {
                         captureUri = Uri.parse(mPaths[0])
                         showSelectedImage(FeedbackImageModel(contentUri = captureUri, imagePath = mPaths[0]))
@@ -473,15 +473,11 @@ class AddReceiptActivity : BaseActivity() {
 
     private fun openCamera() {
 
-        ImagePicker.Builder(this@AddReceiptActivity)
-                .mode(ImagePicker.Mode.CAMERA)
-                .compressLevel(ImagePicker.ComperesLevel.MEDIUM)
-                .directory(ImagePicker.Directory.DEFAULT)
-                .extension(ImagePicker.Extension.PNG)
-                .scale(1024, 1024)
-                .allowMultipleImages(false)
-                .enableDebuggingMode(true)
-                .build()
+        ImagePicker.with(this)
+            .cameraOnly()	//User can only capture image using Camera
+            .compress(1024)//esto hace que la imagen final no pese mas que 1MB
+            .maxResultSize(1024, 1024)
+            .start()
         overridePendingTransition(0, 0)
 //        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 //        if (takePictureIntent.resolveActivity(packageManager) != null) {
@@ -492,15 +488,15 @@ class AddReceiptActivity : BaseActivity() {
     }
 
     private fun openGallery() {
-        ImagePicker.Builder(this@AddReceiptActivity)
-                .mode(ImagePicker.Mode.GALLERY)
-                .compressLevel(ImagePicker.ComperesLevel.NONE)
-                .directory(ImagePicker.Directory.DEFAULT)
-                .extension(ImagePicker.Extension.PNG)
-                .scale(1024, 1024)
-                .allowMultipleImages(false)
-                .enableDebuggingMode(true)
-                .build()
+        ImagePicker.with(this)
+            .galleryOnly()	//User can only select image from Gallery
+            .galleryMimeTypes(
+                mimeTypes = arrayOf(
+                    "image/png"
+                )
+            )
+            .maxResultSize(1024, 1024)
+            .start()
         overridePendingTransition(0, 0)
 
 //        val intent = Intent(Intent.ACTION_PICK)

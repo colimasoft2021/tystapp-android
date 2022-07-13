@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import androidx.annotation.VisibleForTesting
@@ -31,7 +32,6 @@ import com.app.tyst.utility.IConstants
 import com.app.tyst.utility.RemoteIdlingResource
 import com.app.tyst.utility.dialog.DialogUtil
 import com.app.tyst.utility.extension.*
-import com.app.tyst.utility.helper.LOGApp
 import com.app.tyst.utility.helper.mediahelper.MediaHelper
 import com.app.tyst.utility.validation.*
 import com.google.android.libraries.places.api.Places
@@ -40,7 +40,8 @@ import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.master.permissionhelper.PermissionHelper
-import net.alhazmy13.mediapicker.Image.ImagePicker
+import com.github.dhaval2404.imagepicker.ImagePicker
+import com.app.tyst.utility.helper.LOGApp
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -62,6 +63,8 @@ class ReceiptsFragment : BaseFragment<FragmentReceiptsBinding>() {
     private var selectedState: StatesResponse? = null
     private var selectedPlace: Place? = null
     private lateinit var addReceiptRequest: AddReceiptRequest
+
+    var imagePicker: ImageView? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -276,8 +279,8 @@ class ReceiptsFragment : BaseFragment<FragmentReceiptsBinding>() {
                     binding.ivAddImage.visibility = View.GONE
                 }
 
-                ImagePicker.IMAGE_PICKER_REQUEST_CODE -> {
-                    val mPaths = data?.getStringArrayListExtra(ImagePicker.EXTRA_IMAGE_PATH)
+                ImagePicker.REQUEST_CODE -> {
+                    val mPaths = data?.getStringArrayListExtra(ImagePicker.getFilePath(data))
                     if (mPaths?.isNotEmpty() == true) {
                         captureUri = Uri.parse(mPaths[0])
                         binding.ivReceiptImage.loadImage(mPaths[0], R.drawable.user_profile)
@@ -435,15 +438,22 @@ class ReceiptsFragment : BaseFragment<FragmentReceiptsBinding>() {
 
     private fun openCamera() {
 
-        ImagePicker.Builder(mBaseActivity)
-                .mode(ImagePicker.Mode.CAMERA)
-                .compressLevel(ImagePicker.ComperesLevel.MEDIUM)
-                .directory(ImagePicker.Directory.DEFAULT)
-                .extension(ImagePicker.Extension.PNG)
-                .scale(1024, 1024)
-                .allowMultipleImages(false)
-                .enableDebuggingMode(true)
-                .build()
+//        ImagePicker.Builder(mBaseActivity)
+//                .mode(ImagePicker.Mode.CAMERA)
+//                .compressLevel(ImagePicker.ComperesLevel.MEDIUM)
+//                .directory(ImagePicker.Directory.DEFAULT)
+//                .extension(ImagePicker.Extension.PNG)
+//                .scale(1024, 1024)
+//                .allowMultipleImages(false)
+//                .enableDebuggingMode(true)
+//                .build()
+        mBaseActivity?.let {
+            ImagePicker.with(it)
+                .cameraOnly()
+                .compress(1024)//esto hace que la imagen final no pese mas que 1MB
+                .maxResultSize(1024, 1024)
+                .start()
+        }
 //        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 //        if (takePictureIntent.resolveActivity(packageManager) != null) {
 //            captureUri = getCameraUri(this@AddReceiptActivity)
@@ -453,16 +463,26 @@ class ReceiptsFragment : BaseFragment<FragmentReceiptsBinding>() {
     }
 
     private fun openGallery() {
-        ImagePicker.Builder(mBaseActivity)
-                .mode(ImagePicker.Mode.GALLERY)
-                .compressLevel(ImagePicker.ComperesLevel.NONE)
-                .directory(ImagePicker.Directory.DEFAULT)
-                .extension(ImagePicker.Extension.PNG)
-                .scale(1024, 1024)
-                .allowMultipleImages(false)
-                .enableDebuggingMode(true)
-                .build()
-
+//        ImagePicker.Builder(mBaseActivity)
+//                .mode(ImagePicker.Mode.GALLERY)
+//                .compressLevel(ImagePicker.ComperesLevel.NONE)
+//                .directory(ImagePicker.Directory.DEFAULT)
+//                .extension(ImagePicker.Extension.PNG)
+//                .scale(1024, 1024)
+//                .allowMultipleImages(false)
+//                .enableDebuggingMode(true)
+//                .build()
+        mBaseActivity?.let {
+            ImagePicker.with(it)
+                .galleryOnly()
+                .galleryMimeTypes(
+                    mimeTypes = arrayOf(
+                        "image/png"
+                    )
+                )
+                .maxResultSize(1024, 1024)
+                .start()
+        }
 //        val intent = Intent(Intent.ACTION_PICK)
 //        intent.type = "image/*"
 //        startActivityForResult(intent, IConstants.REQUEST_CODE_GALLERY)
