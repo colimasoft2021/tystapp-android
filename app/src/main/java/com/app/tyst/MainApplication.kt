@@ -80,17 +80,17 @@ class MainApplication : Application() {
 
         initPlaidSdk()
 
-        Handler().postDelayed({ HomeRepository(BaseViewModel(this)).callConfigParameters(versionLiveData) }, 5000)
+        Handler().postDelayed({
+            HomeRepository(BaseViewModel(this)).callConfigParameters(
+                versionLiveData
+            )
+        }, 5000)
+
         }
     fun setCurrentActivity(activity: BaseActivity) {
         weakActivity = WeakReference(activity)
     }
-    fun addContentView(
-        view: View?,
-        params: ViewGroup.LayoutParams?
-    ) {
-        this.addContentView(view, params)
-    }
+
 
         fun getCurrentActivity(): BaseActivity? {
             return weakActivity?.get()
