@@ -146,17 +146,17 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     fun showSessionExpireDialog() {
         DialogUtil.alert(context = this@BaseActivity,
-                msg = getString(R.string.msg_looged_in_from_other_device),
-                il = object : DialogUtil.IL {
-                    override fun onSuccess() {
-                        navigateToLoginScreen(true)
-                    }
+            msg = getString(R.string.msg_looged_in_from_other_device),
+            il = object : DialogUtil.IL {
+                override fun onSuccess() {
+                    navigateToLoginScreen(true)
+                }
 
-                    override fun onCancel(isNeutral: Boolean) {
-                        navigateToLoginScreen(true)
-                    }
-                },
-                isCancelable = false)
+                override fun onCancel(isNeutral: Boolean) {
+                    navigateToLoginScreen(true)
+                }
+            },
+            isCancelable = false)
     }
 
     fun handleApiError(settings: Settings?,
@@ -188,8 +188,8 @@ abstract class BaseActivity : AppCompatActivity() {
                 if (progressDialogFragment?.dialog == null || progressDialogFragment?.dialog?.isShowing == false) {
                     ProgressDialogFragment.message = message
                     progressDialogFragment?.show(
-                            supportFragmentManager,
-                            javaClass.simpleName)
+                        supportFragmentManager,
+                        javaClass.simpleName)
                 }
             } else {
                 progressDialogFragment?.dismissAllowingStateLoss()
@@ -323,5 +323,5 @@ abstract class BaseActivity : AppCompatActivity() {
             logger.debugEvent("Banner Ad", "onAdClosed")
         }
     }
-    
+
 }

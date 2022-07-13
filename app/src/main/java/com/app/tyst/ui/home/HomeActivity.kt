@@ -30,7 +30,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ncapdevi.fragnav.FragNavController
-import net.alhazmy13.mediapicker.Image.ImagePicker
+import com.github.dhaval2404.imagepicker.ImagePicker
 
 
 class HomeActivity : BaseActivity(), FragNavController.TransactionListener, FragNavController.RootFragmentListener {
@@ -195,7 +195,7 @@ class HomeActivity : BaseActivity(), FragNavController.TransactionListener, Frag
             (mFragNavController?.currentFrag as MyProfileFragment).onActivityResult(requestCode, resultCode, data)
         } else if (requestCode == IConstants.REQUEST_PLAID_LINK_CODE && mFragNavController?.currentFrag is HomeFragment) {
             (mFragNavController?.currentFrag as HomeFragment).onActivityResult(requestCode, resultCode, data)
-        } else if (requestCode == ImagePicker.IMAGE_PICKER_REQUEST_CODE && mFragNavController?.currentFrag is ReceiptsFragment) {
+        } else if (requestCode == ImagePicker.REQUEST_CODE && mFragNavController?.currentFrag is ReceiptsFragment) {
             (mFragNavController?.currentFrag as ReceiptsFragment).onActivityResult(requestCode, resultCode, data)
         }
 

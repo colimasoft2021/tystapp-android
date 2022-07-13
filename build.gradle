@@ -13,9 +13,9 @@ buildscript {
 
 //        maven { url  "https://dl.bintray.com/hbdevmdm/maven" }
 //        maven { url  "https://dl.bintray.com/k9428/ksdp" }
-//        maven {
-//            url "https://jitpack.io"
-//        }
+        maven {
+            url "https://jitpack.io"
+        }
 //        maven {
 //            url 'https://maven.fabric.io/public'
 //        }
