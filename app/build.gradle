@@ -24,7 +24,7 @@ android {
     defaultConfig {
 
         applicationId "com.app.tyst"
-        minSdk 21
+        minSdk 25
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -115,6 +115,9 @@ dependencies {
 
     //Testing
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.compose.foundation:foundation-layout:1.1.1'
+    implementation 'androidx.compose.material:material:1.1.1'
+    implementation 'androidx.wear.compose:compose-material:1.1.0-alpha01'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -230,10 +233,15 @@ dependencies {
     // image picker
     implementation 'com.github.florent37:inline-activity-result-kotlin:1.0.4'
     implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
-
-
+    implementation 'com.github.yalantis:ucrop:2.2.6'
     //MaterialStyleDialogs
-    implementation 'com.github.javiersantos:MaterialStyledDialogs:3.0.1'
+   // implementation 'com.github.javiersantos:MaterialStyledDialogs:3.0.1'
+
+
+    implementation 'com.google.android.gms:play-services-ads:21.1.0'
+
+    //webserviceUtils
+    implementation 'org.daisy.pipeline:webservice-utils:5.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

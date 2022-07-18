@@ -66,16 +66,16 @@ class FacebookLoginManager : BaseActivity() {
         val request = GraphRequest.newMeRequest(accessToken) { mJSONObject, _ ->
 
             try {
-                val pictureObject = mJSONObject.getJSONObject("picture")
-                val dataObject = pictureObject.getJSONObject("data")
-                val picUrl = dataObject.optString("url")
+                val pictureObject = mJSONObject?.getJSONObject("picture")
+                val dataObject = pictureObject?.getJSONObject("data")
+                val picUrl = dataObject?.optString("url")
                 social?.profileImageUrl = picUrl
-                social?.name = mJSONObject.optString("name").toString()
-                social?.emailId = mJSONObject.optString("email").toString()
+                social?.name = mJSONObject?.optString("name").toString()
+                social?.emailId = mJSONObject?.optString("email").toString()
                 social?.accessToken = accessToken.token
-                social?.firstName = mJSONObject.optString("first_name").toString()
-                social?.lastName = mJSONObject.optString("last_name").toString()
-                social?.socialId = mJSONObject.optString("id").toString()
+                social?.firstName = mJSONObject?.optString("first_name").toString()
+                social?.lastName = mJSONObject?.optString("last_name").toString()
+                social?.socialId = mJSONObject?.optString("id").toString()
                 social?.type = IConstants.SOCIAL_TYPE_FB
                 onExit(true)
             } catch (e: Exception) {

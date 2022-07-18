@@ -23,7 +23,7 @@ import java.io.IOException
 
 class CropperActivity : BaseActivity(), View.OnClickListener {
     private var binding: ActivityCropperBinding? = null
-    private var imageUri: String? = null
+    private lateinit var imageUri:String
     private var issquare: Boolean = false
     private var minSize: Array<Int>? = null
 
@@ -31,7 +31,7 @@ class CropperActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cropper)
         if (intent.hasExtra(IConstants.BUNDLE_IMG_URI)) {
-            imageUri = intent.getStringExtra(IConstants.BUNDLE_IMG_URI)
+            imageUri = intent.getStringExtra(IConstants.BUNDLE_IMG_URI)!!
         } else {
             throw IllegalStateException("you must pass image to crop")
         }

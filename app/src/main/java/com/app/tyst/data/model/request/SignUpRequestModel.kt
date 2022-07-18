@@ -1,5 +1,6 @@
 package com.app.tyst.data.model.request
 
+import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
@@ -24,4 +25,12 @@ data class SignUpRequestModel(
         var socialType: String = "",
         var socialId: String = "",
         var tnc:Boolean = true
-) : Parcelable
+) : Parcelable {
+        override fun describeContents(): Int {
+                TODO("Not yet implemented")
+        }
+
+        override fun writeToParcel(p0: Parcel?, p1: Int) {
+                TODO("Not yet implemented")
+        }
+}

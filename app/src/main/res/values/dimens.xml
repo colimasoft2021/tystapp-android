@@ -21,4 +21,5 @@
   <dimen name="otp_view_item_spacing">5dp</dimen>
   <dimen name="otp_view_item_line_width">2dp</dimen>
   <dimen name="otp_view_cursor_width">2dp</dimen>
+  <dimen name="_12sp">12dp</dimen>
 </resources>

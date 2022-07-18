@@ -5,9 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.preference.PreferenceManager
+import android.preference.PreferenceManager.*
 import android.telephony.PhoneNumberUtils
 import android.util.Base64
 import android.widget.EditText
+import android.widget.Toast
 import com.andrognito.flashbar.Flashbar
 import com.app.tyst.BuildConfig
 import com.app.tyst.MainApplication
@@ -18,16 +21,19 @@ import com.app.tyst.utility.IConstants.Companion.SNAKBAR_TYPE_ERROR
 import com.app.tyst.utility.IConstants.Companion.SNAKBAR_TYPE_MESSAGE
 import com.app.tyst.utility.IConstants.Companion.SNAKBAR_TYPE_SUCCESS
 import com.app.tyst.utility.helper.LOGApp
-import com.dc.retroapi.utils.AESEncrypter
+import javax.crypto.Cipher
 import com.google.gson.GsonBuilder
 import com.hb.logger.Logger
+import com.hb.logger.Logger.Companion.context
 import com.hb.logger.data.model.CustomLog
-import java.io.IOException
-import java.io.UnsupportedEncodingException
+import java.io.*
 import java.net.URLDecoder
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.crypto.KeyGenerator
+import javax.crypto.SecretKey
+import javax.crypto.spec.IvParameterSpec
 
 /**
  * Created by hb on 15/3/18.
@@ -317,12 +323,99 @@ fun String.parseCurrencyToDouble(): Double {
     }
 }
 
-fun String.toEncrypt():String{
-    val encrypt = AESEncrypter(BuildConfig.EncryptionKey)
-    return encrypt.encrypt(this)
+/*fun String.toEncrypt():String{
+    val plaintext: ByteArray = this.toByteArray()
+    val keygen = KeyGenerator.getInstance("AES")
+    keygen.init(256)
+    val key: SecretKey = keygen.generateKey()
+    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+    cipher.init(Cipher.ENCRYPT_MODE, key)
+    val ciphertext: ByteArray = cipher.doFinal(plaintext)
+    saveInitializationVector(context!!.applicationContext , cipher.iv)
+    return ciphertext.toString()
+}*/
+
+/*fun String.toDecrypt():String{
+    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+    val ivSpec = IvParameterSpec(getSavedInitializationVector(context!!.applicationContext))
+    cipher.init(Cipher.DECRYPT_MODE, getSavedSecretKey(context), ivSpec)
+    val cipherText = cipher.doFinal(dataToDecrypt)
+    return encrypt.decrypt(URLDecoder.decode(this))
+}*/
+fun String.toEncrypt(): String {
+    val plainText = this.toByteArray()
+    val keygen = KeyGenerator.getInstance("AES")
+    keygen.init(256)
+    val key = keygen.generateKey()
+    saveSecretKey(context!!.applicationContext, key)
+    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+    cipher.init(Cipher.ENCRYPT_MODE, key)
+    val cipherText = cipher.doFinal(plainText)
+    saveInitializationVector(context!!.applicationContext, cipher.iv)
+
+    val sb = StringBuilder()
+    for (b in cipherText.indices) {
+        sb.append(b.toChar())
+    }
+    Toast.makeText(context, "dbg encrypted = [" + sb.toString() + "]", Toast.LENGTH_LONG).show()
+
+    return cipherText.toString()
 }
 
-fun String.toDecrypt():String{
-    val encrypt = AESEncrypter(BuildConfig.EncryptionKey)
-    return encrypt.decrypt(URLDecoder.decode(this))
+fun String.decrypt(): String {
+    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+    val ivSpec = IvParameterSpec(getSavedInitializationVector(context!!.applicationContext))
+    cipher.init(Cipher.DECRYPT_MODE, getSavedSecretKey(context!!.applicationContext), ivSpec)
+    val cipherText = cipher.doFinal(this.toByteArray())
+
+    val sb = StringBuilder()
+    for (b in cipherText.indices) {
+        sb.append(b.toChar())
+    }
+    Toast.makeText(context, "dbg decrypted = [" + sb.toString() + "]", Toast.LENGTH_LONG).show()
+
+    return cipherText.toString()
+}
+
+@Suppress("DEPRECATION")
+fun saveSecretKey(context:Context, secretKey: SecretKey) {
+    val baos = ByteArrayOutputStream()
+    val oos = ObjectOutputStream(baos)
+    oos.writeObject(secretKey)
+    val strToSave = String(Base64.encode(baos.toByteArray(), Base64.DEFAULT))
+    val sharedPref = getDefaultSharedPreferences(context)
+    val editor = sharedPref.edit()
+    editor.putString("secret_key", strToSave)
+    editor.apply()
+}
+
+@Suppress("DEPRECATION")
+fun getSavedSecretKey(context: Context): SecretKey {
+    val sharedPref = getDefaultSharedPreferences(context)
+    val strSecretKey = sharedPref.getString("secret_key", "")
+    val bytes = Base64.decode(strSecretKey, Base64.DEFAULT)
+    val ois = ObjectInputStream(ByteArrayInputStream(bytes))
+    val secretKey = ois.readObject() as SecretKey
+    return secretKey
+}
+
+@Suppress("DEPRECATION")
+fun saveInitializationVector(context: Context, initializationVector: ByteArray) {
+    val baos = ByteArrayOutputStream()
+    val oos = ObjectOutputStream(baos)
+    oos.writeObject(initializationVector)
+    val strToSave = String(Base64.encode(baos.toByteArray(), Base64.DEFAULT))
+    val sharedPref = getDefaultSharedPreferences(context)
+    val editor = sharedPref.edit()
+    editor.putString("initialization_vector", strToSave)
+    editor.apply()
+}
+
+fun getSavedInitializationVector(context: Context) : ByteArray {
+    val sharedPref = getDefaultSharedPreferences(context)
+    val strInitializationVector = sharedPref.getString("initialization_vector", "")
+    val bytes = Base64.decode(strInitializationVector, Base64.DEFAULT)
+    val ois = ObjectInputStream(ByteArrayInputStream(bytes))
+    val initializationVector = ois.readObject() as ByteArray
+    return initializationVector
 }
