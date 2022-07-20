@@ -3,6 +3,7 @@ package com.app.tyst.ui.core
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -26,11 +27,15 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.hb.logger.Logger
 import com.hb.logger.data.model.CustomLog
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.materialdesigniconic.MaterialDesignIconic
+
+
 
 /**
  * Created by HB on 21/8/19.
@@ -233,11 +238,12 @@ abstract class BaseActivity : AppCompatActivity() {
         return if ((sharedPreference.userDetail?.isSubscripbed() == true) || !AppConfig.INTERSTITIAL_AD)
             false else if (++(application as MainApplication).counterIntertitialAdd % 4 == 0) {
             LOGApp.e("Count:--" + (application as MainApplication).counterIntertitialAdd)
-            if ((application as MainApplication).mInterstitialAd?.isLoaded == true) {
-                (application as MainApplication).mInterstitialAd?.show()
+            //si esta diferente de null quiere decir que esta listo, entonces se muestra
+            if ((application as MainApplication).mInterstitialAd != null) {
+                (application as MainApplication).mInterstitialAd?.show(this)
                 true
             } else {
-                (application as MainApplication).mInterstitialAd?.loadAd(AdRequest.Builder().build())
+                (application as MainApplication).loadAd()
                 false
             }
         } else {
@@ -303,8 +309,8 @@ abstract class BaseActivity : AppCompatActivity() {
             logger.debugEvent("Banner Ad", "Add Loaded")
         }
 
-        override fun onAdFailedToLoad(errorCode : Int) {
-            logger.debugEvent("Banner Ad", "ERROR "+errorCode, status = CustomLog.STATUS_ERROR)
+        override fun onAdFailedToLoad(p0: LoadAdError) {
+            logger.debugEvent("Banner Ad", "ERROR "+p0, status = CustomLog.STATUS_ERROR)
         }
 
         override fun onAdOpened() {
@@ -315,7 +321,7 @@ abstract class BaseActivity : AppCompatActivity() {
             logger.debugEvent("Banner Ad", "onAdClicked")
         }
 
-        override fun onAdLeftApplication() {
+        fun onAdLeftApplication() {
             logger.debugEvent("Banner Ad", "onAdLeftApplication")
         }
 
@@ -323,5 +329,6 @@ abstract class BaseActivity : AppCompatActivity() {
             logger.debugEvent("Banner Ad", "onAdClosed")
         }
     }
+
 
 }

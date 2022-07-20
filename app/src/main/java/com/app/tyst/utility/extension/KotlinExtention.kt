@@ -18,14 +18,14 @@ import com.app.tyst.utility.IConstants.Companion.SNAKBAR_TYPE_ERROR
 import com.app.tyst.utility.IConstants.Companion.SNAKBAR_TYPE_MESSAGE
 import com.app.tyst.utility.IConstants.Companion.SNAKBAR_TYPE_SUCCESS
 import com.app.tyst.utility.helper.LOGApp
-import com.dc.retroapi.utils.AESEncrypter
 import com.google.gson.GsonBuilder
 import com.hb.logger.Logger
 import com.hb.logger.data.model.CustomLog
 import java.io.IOException
 import java.io.UnsupportedEncodingException
-import java.net.URLDecoder
 import java.text.NumberFormat
+import java.net.URLDecoder
+import com.dc.retroapi.utils.AESEncrypter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -317,6 +317,25 @@ fun String.parseCurrencyToDouble(): Double {
     }
 }
 
+/*fun String.toEncrypt():String{
+    val plaintext: ByteArray = this.toByteArray()
+    val keygen = KeyGenerator.getInstance("AES")
+    keygen.init(256)
+    val key: SecretKey = keygen.generateKey()
+    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+    cipher.init(Cipher.ENCRYPT_MODE, key)
+    val ciphertext: ByteArray = cipher.doFinal(plaintext)
+    saveInitializationVector(context!!.applicationContext , cipher.iv)
+    return ciphertext.toString()
+}*/
+
+/*fun String.toDecrypt():String{
+    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+    val ivSpec = IvParameterSpec(getSavedInitializationVector(context!!.applicationContext))
+    cipher.init(Cipher.DECRYPT_MODE, getSavedSecretKey(context), ivSpec)
+    val cipherText = cipher.doFinal(dataToDecrypt)
+    return encrypt.decrypt(URLDecoder.decode(this))
+}*/
 fun String.toEncrypt():String{
     val encrypt = AESEncrypter(BuildConfig.EncryptionKey)
     return encrypt.encrypt(this)
@@ -326,3 +345,5 @@ fun String.toDecrypt():String{
     val encrypt = AESEncrypter(BuildConfig.EncryptionKey)
     return encrypt.decrypt(URLDecoder.decode(this))
 }
+
+

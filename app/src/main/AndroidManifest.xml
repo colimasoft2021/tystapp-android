@@ -25,6 +25,9 @@
         tools:replace="android:supportsRtl,android:allowBackup,android:label"
         tools:targetApi="s"
         android:dataExtractionRules="@xml/data_extraction_rules">
+        <meta-data
+            android:name="com.google.android.gms.ads.com.app.tyst"
+            android:value="ca-app-pub-5963823178389539~1792060567"/>
         <activity android:name=".ui.transactions.category.CategoryListActivity"
             android:configChanges="screenLayout|screenSize|orientation"
             android:screenOrientation="portrait"
