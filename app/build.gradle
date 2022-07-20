@@ -242,6 +242,10 @@ dependencies {
 
     //webserviceUtils
     implementation 'org.daisy.pipeline:webservice-utils:5.0.0'
+
+
+    api 'com.squareup.okhttp3:logging-interceptor:4.1.0'
+    api 'com.squareup.retrofit2:converter-gson:2.6.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
